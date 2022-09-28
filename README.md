@@ -1,6 +1,4 @@
-
-
-КОРОЧЕ НЕ ЛОМАЙ КОПИРУЙ
+КОРОЧЕ НЕ ЛОМАЙ КОПИРУЙ 
 
 УЧИ ГИТ УКАМ
 
@@ -16,9 +14,9 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
-    Короче делай python manage.py makemigrations
 
-    Потом python manage.py migrate
+4. Короче делай python manage.py makemigrations
+5. Потом python manage.py migrate
 
-    потом python manage.py createsuperuser
+6. потом python manage.py createsuperuser
 
