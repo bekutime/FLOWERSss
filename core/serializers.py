@@ -24,7 +24,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ('id', 'description', 'price', 'color', 'sum', 'image', 'comments')
+        fields = ('id', 'description', 'price', 'color', 'sum', 'image', 'comments','height')
         extra_kwargs = {
             'user': {'read_only': True}
         }
@@ -55,4 +55,22 @@ class ProductSerializer(serializers.ModelSerializer):
             'user': {'read_only': True}
         }
 
+class ProductCreate(serializers.ModelSerializer):
+    class Meta:
+         model = Product
+         fields = ('id', 'description', 'price', 'color', 'sum', 'height', 'name')
+         extra_kwargs = {
+             'user': {'read_only': True}
+         }
 
+
+
+
+
+#class MultipleImageSerializer(serializers.Serializer):
+    # images = serializers.ListField(
+    #     child=serializers.ImageField()
+    # )
+    # class Meta:
+    #     model = ObjectImage
+    #     fields = '__all__'

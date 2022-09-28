@@ -6,6 +6,7 @@ from multiselectfield import MultiSelectField
 class Product(models.Model):
     name = models.CharField(max_length=255)
     photo = models.ImageField(upload_to='flowers.photo', blank=True )
+
     price = models.DecimalField(max_digits=8,decimal_places=1, default=None)
     description = models.TextField(default=None)
     red = 'Red'
@@ -75,13 +76,13 @@ class ObjectImage(models.Model):
     image = models.ImageField(upload_to='Photo', verbose_name='Фото')
     image_link = models.ForeignKey('Product', verbose_name='Ссылка на объект', on_delete=models.CASCADE,
                                    related_name='image')
-
+    # user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     class Meta:
         verbose_name = 'Фото объекта'
         verbose_name_plural = 'Фото объекта'
 
     def __str__(self):
-        return self.image
+        return str(self.image)
 
 
 class Comment(models.Model):

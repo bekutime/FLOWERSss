@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+ db:
+   image: postgres:13.3
+   volumes:
+     - postgres_data:/var/lib/postgresql/data/
+   environment:
+     POSTGRES_DB: "bektur_db"
+     POSTGRES_USER: "bektur"
+     POSTGRES_PASSWORD: "admin"
+   ports:
+     - "5432:5432"
+ web:
+   build: .
+   command: python manage.py runserver 0.0.0.0:8000
+   volumes:
+     - .:/flowers
+   ports:
+     - "8000:8000"
+   depends_on:
+     - db
+volumes:
+  postgres_data:
+
+
+#8000 порт вашего ноутбука, он сллева,  будет конкретно ссылаться
+# на 8000 порт контейнера он с права
+#Если его не прописать у вас связки не будет,

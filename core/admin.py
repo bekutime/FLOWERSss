@@ -1,3 +1,4 @@
+'''Тут мы пытались добавить Много фотографий в Продукте и соеденили их'''
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin, TabularInline
 

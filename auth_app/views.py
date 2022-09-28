@@ -21,12 +21,12 @@ class LoginView(APIView):
     def post(self, request, *args, **kwargs):
         login = request.data.get('login')
         if not User.objects.filter(username=login).exists():
-            return Response('Такой Логин или Пароль не сушетвуют')
+            return Response('Не верный логин или Пароль')
         user = User.objects.get(username=login)
         password = request.data.get('password')
         pass_check = check_password(password, user.password)
         if not pass_check:
-            return Response('Такой Логин или Пароль не сушетвуют')
+            return Response('Не верный логин или Пароль')
         token = Token.objects.get(user=user)
         return Response({'token': str(token.key)})
 
